@@ -14,6 +14,7 @@ form_languages:
 dataset_fields:
 
 - field_name: title_translated
+  type: dictionary
   label:
     en: Title
     fr: Titre
@@ -25,6 +26,12 @@ dataset_fields:
   required: "true"
   fieldset: 1
   fieldset_name: Describing the resource
+  classes: ["col-md-4"]
+  schema:
+    key:
+      type: string
+    value:
+      type: string
 
 - field_name: name
   label: URL
@@ -32,6 +39,7 @@ dataset_fields:
   form_placeholder: eg. my-dataset
 
 - field_name: notes_translated
+  type: dictionary
   label:
     en: Description
     fr: Description
@@ -41,7 +49,11 @@ dataset_fields:
     es: Descripción
   form_placeholder: "eg. Some useful notes about the data"
   preset: fluent_core_translated
-
+  schema:
+    key:
+      type: string
+    value:
+      type: string
 
 - field_name: tag_string
   label: Tags
