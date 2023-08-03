@@ -53,23 +53,6 @@
             },
             "form_placeholder": "eg. Some useful notes about the data"
         }
-        {
-            "field_name": "owner_org",
-            "label": "Orgination",
-            "fieldset": 3,
-            "fieldset_name": "Contributors",
-            "fieldset_subtitle": "In addition to the maintainer, who else is involved? Let users know who to contact and who to attribute.",
-            "help_inline": true,
-            "required": "true",
-            "help_text": {
-                "en": "The Orgination managing this resource within the OPS"
-            },
-            "preset": "dataset_organization",
-            "classes": [
-                "col-md-12",
-                "form-group"
-            ]
-        }
     ],
     "resource_fields": [
         {

@@ -1,0 +1,137 @@
+{
+    "scheming_version": 2,
+    "dataset_type": "dataset",
+    "about": "A reimplementation of the default CKAN dataset schema",
+    "about_url": "http://github.com/ckan/ckanext-scheming",
+    "form_languages": [
+        "en",
+        "fr",
+        "ar",
+        "ru",
+        "zh_Hans_CN",
+        "es"
+    ],
+    "dataset_fields": [
+        {
+            "field_name": "title",
+            "label": {
+                "en": "Title",
+                "fr": "Titre"
+            },
+            "preset": "title",
+            "form_placeholder": "eg. A descriptive title modified by vivek"
+        },
+        {
+            "field_name": "name",
+            "label": {
+                "en": "URL",
+                "fr": "URL",
+                "ar": "رابط",
+                "ru": "Ссылка",
+                "zh_Hans_CN": "链接",
+                "es": "URL"
+            },
+            "preset": "dataset_slug",
+            "form_placeholder": "eg. my-dataset"
+        },
+        {
+            "field_name": "notes",
+            "label": {
+                "en": "Description",
+                "fr": "Description",
+                "ar": "وصف",
+                "ru": "Описание",
+                "zh_Hans_CN": "描述",
+                "es": "Descripción"
+            },
+            "form_placeholder": "eg. Some useful notes about the data"
+        },
+        {
+            "field_name": "tag_string",
+            "label": {
+                "en": "Tags",
+                "fr": "Mots-clés",
+                "ar": "وسوم",
+                "ru": "Теги",
+                "zh_Hans_CN": "标签",
+                "es": "Etiquetas"
+            },
+            "preset": "tag_string_autocomplete",
+            "form_placeholder": "eg. economy, mental health, government"
+        },
+        {
+            "field_name": "license_id",
+            "label": {
+                "en": "License",
+                "fr": "Licence"
+            },
+            "form_snippet": "license.html",
+            "help_text": "License definitions and additional information can be found at http://opendefinition.org/"
+        },
+        {
+            "field_name": "owner_org",
+            "label": {
+                "en": "Organization",
+                "fr": "Organisation"
+            },
+            "preset": "dataset_organization"
+        },
+        {
+            "field_name": "url",
+            "label": {
+                "en": "Source",
+                "fr": "Source",
+                "ar": "المصدر",
+                "ru": "Источник",
+                "zh_Hans_CN": "来源",
+                "es": "Fuente"
+            },
+            "form_placeholder": "http://example.com/dataset.json"
+        },
+        {
+            "field_name": "version",
+            "label": {
+                "en": "Version",
+                "fr": "Version"
+            },
+            "validators": [
+                "ignore_missing",
+                "unicode_safe",
+                "package_version_validator"
+            ],
+            "form_placeholder": "1.0"
+        },
+        {
+            "field_name": "author",
+            "label": {
+                "en": "Author",
+                "fr": "Auteur"
+            },
+            "form_placeholder": "Joe Bloggs"
+        },
+        {
+            "field_name": "author_email",
+            "label": {
+                "en": "Author Email",
+                "fr": "Email de l'auteur"
+            },
+            "form_placeholder": "joe@example.com"
+        },
+        {
+            "field_name": "maintainer",
+            "label": {
+                "en": "Maintainer",
+                "fr": "Responsable"
+            },
+            "form_placeholder": "Joe Bloggs"
+        },
+        {
+            "field_name": "maintainer_email",
+            "label": {
+                "en": "Maintainer Email",
+                "fr": "Email du responsable"
+            },
+            "form_placeholder": "joe@example.com"
+        }
+    ]
+}

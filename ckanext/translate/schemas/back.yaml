@@ -2,46 +2,29 @@ scheming_version: 2
 dataset_type: dataset
 about: A reimplementation of the default CKAN dataset schema
 about_url: http://github.com/ckan/ckanext-scheming
-
 form_languages:
-- en
-- fr
-- ar
-- ru
-- zh_Hans_CN
-- es
-
+  - en
+  - fr
+  - ar
+  - ru
+  - zh_Hans_CN
+  - es
 dataset_fields:
 
-- field_name: title_translated
-  label:
-    en: Title
-    fr: Titre
-  help_inline: true
-  help_text:
-    en: Add a simple, descriptive, short (100 characters or less) title that everyone will understand (you can include the "technical title" for subject matter experts in your description). If there is no French title, please use an online translation tool to make one.
-  preset: fluent_core_translated
-  form_placeholder: "e.g., A descriptive title"
-  required: "true"
-  fieldset: 1
-  fieldset_name: Describing the resource
+- field_name: title
+  label: Title modifried by vivek
+  preset: title
+  form_placeholder: eg. A descriptive title modifried by vivek
 
 - field_name: name
   label: URL
   preset: dataset_slug
   form_placeholder: eg. my-dataset
 
-- field_name: notes_translated
-  label:
-    en: Description
-    fr: Description
-    ar: وصف
-    ru: Описание
-    zh_Hans_CN: 描述
-    es: Descripción
-  form_placeholder: "eg. Some useful notes about the data"
-  preset: fluent_core_translated
-
+- field_name: notes
+  label: Description
+  form_snippet: markdown.html
+  form_placeholder: eg. Some useful notes about the data
 
 - field_name: tag_string
   label: Tags
