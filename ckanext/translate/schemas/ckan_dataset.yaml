@@ -30,6 +30,7 @@ dataset_fields:
   schema:
     key:
       type: string
+      default: language_code
     value:
       type: string
 
@@ -37,6 +38,12 @@ dataset_fields:
   label: URL
   preset: dataset_slug
   form_placeholder: eg. my-dataset
+  type: dictionary
+  schema:
+    key:
+      type: string
+    value:
+      type: string
 
 - field_name: notes_translated
   type: dictionary
@@ -111,14 +118,16 @@ resource_fields:
   label: URL
   preset: resource_url_upload
 
-- field_name: name
+- field_name: name_translated
   label: Name
   form_placeholder: eg. January 2011 Gold Prices
+  preset: fluent_core_translated
 
-- field_name: description
+- field_name: description_translated
   label: Description
   form_snippet: markdown.html
   form_placeholder: Some useful notes about the data
+  preset: fluent_core_translated
 
 - field_name: format
   label: Format

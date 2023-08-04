@@ -1,8 +1,8 @@
 {
     "scheming_version": 2,
     "dataset_type": "dataset",
-    "about": "Internal data catalogue dataset schema",
-    "about_url": "",
+    "about": "A reimplementation of the default CKAN dataset schema",
+    "about_url": "http://github.com/ckan/ckanext-scheming",
     "form_languages": [
         "en",
         "fr",
@@ -14,6 +14,7 @@
     "dataset_fields": [
         {
             "field_name": "title_translated",
+            "type": "dictionary",
             "label": {
                 "en": "Title",
                 "fr": "Titre"
@@ -26,23 +27,38 @@
             "form_placeholder": "e.g., A descriptive title",
             "required": "true",
             "fieldset": 1,
-            "fieldset_name": "Describing the resource"
+            "fieldset_name": "Describing the resource",
+            "classes": [
+                "col-md-4"
+            ],
+            "schema": {
+                "key": {
+                    "type": "string",
+                    "default": "language_code"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
         },
         {
             "field_name": "name",
-            "label": {
-                "en": "URL",
-                "fr": "URL",
-                "ar": "رابط",
-                "ru": "Ссылка",
-                "zh_Hans_CN": "链接",
-                "es": "URL"
-            },
+            "label": "URL",
             "preset": "dataset_slug",
-            "form_placeholder": "eg. my-dataset"
+            "form_placeholder": "eg. my-dataset",
+            "type": "dictionary",
+            "schema": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
         },
         {
             "field_name": "notes_translated",
+            "type": "dictionary",
             "label": {
                 "en": "Description",
                 "fr": "Description",
@@ -51,24 +67,74 @@
                 "zh_Hans_CN": "描述",
                 "es": "Descripción"
             },
-            "form_placeholder": "eg. Some useful notes about the data"
-        }
+            "form_placeholder": "eg. Some useful notes about the data",
+            "preset": "fluent_core_translated",
+            "schema": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        {
+            "field_name": "tag_string",
+            "label": "Tags",
+            "preset": "tag_string_autocomplete",
+            "form_placeholder": "eg. economy, mental health, government"
+        },
+        {
+            "field_name": "license_id",
+            "label": "License",
+            "form_snippet": "license.html",
+            "help_text": "License definitions and additional information can be found at http://opendefinition.org/"
+        },
         {
             "field_name": "owner_org",
-            "label": "Orgination",
-            "fieldset": 3,
-            "fieldset_name": "Contributors",
-            "fieldset_subtitle": "In addition to the maintainer, who else is involved? Let users know who to contact and who to attribute.",
-            "help_inline": true,
-            "required": "true",
-            "help_text": {
-                "en": "The Orgination managing this resource within the OPS"
-            },
-            "preset": "dataset_organization",
-            "classes": [
-                "col-md-12",
-                "form-group"
-            ]
+            "label": "Organization",
+            "preset": "dataset_organization"
+        },
+        {
+            "field_name": "url",
+            "label": "Source",
+            "form_placeholder": "http://example.com/dataset.json",
+            "display_property": "foaf:homepage",
+            "display_snippet": "link.html"
+        },
+        {
+            "field_name": "version",
+            "label": "Version",
+            "validators": "ignore_missing unicode_safe package_version_validator",
+            "form_placeholder": "1.0"
+        },
+        {
+            "field_name": "author",
+            "label": "Author",
+            "form_placeholder": "Joe Bloggs",
+            "display_property": "dc:creator"
+        },
+        {
+            "field_name": "author_email",
+            "label": "Author Email",
+            "form_placeholder": "joe@example.com",
+            "display_property": "dc:creator",
+            "display_snippet": "email.html",
+            "display_email_name_field": "author"
+        },
+        {
+            "field_name": "maintainer",
+            "label": "Maintainer",
+            "form_placeholder": "Joe Bloggs",
+            "display_property": "dc:contributor"
+        },
+        {
+            "field_name": "maintainer_email",
+            "label": "Maintainer Email",
+            "form_placeholder": "joe@example.com",
+            "display_property": "dc:contributor",
+            "display_snippet": "email.html",
+            "display_email_name_field": "maintainer"
         }
     ],
     "resource_fields": [
@@ -78,15 +144,17 @@
             "preset": "resource_url_upload"
         },
         {
-            "field_name": "name",
+            "field_name": "name_translated",
             "label": "Name",
-            "form_placeholder": "eg. January 2011 Gold Prices"
+            "form_placeholder": "eg. January 2011 Gold Prices",
+            "preset": "fluent_core_translated"
         },
         {
-            "field_name": "description",
+            "field_name": "description_translated",
             "label": "Description",
             "form_snippet": "markdown.html",
-            "form_placeholder": "Some useful notes about the data"
+            "form_placeholder": "Some useful notes about the data",
+            "preset": "fluent_core_translated"
         },
         {
             "field_name": "format",

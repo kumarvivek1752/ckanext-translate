@@ -25,12 +25,12 @@ class TranslatePlugin(plugins.SingletonPlugin, DefaultTranslation):
         toolkit.add_public_directory(config_, "public")
         toolkit.add_resource("fanstatic", "translate")
 
-        # config_[
-        #     "scheming.dataset_schemas"
-        # ] = "ckanext.translate:schemas/translate_dataset.json"
         config_[
             "scheming.dataset_schemas"
-        ] = "ckanext.translate:schemas/ckan_dataset.yaml"
+        ] = "ckanext.translate:schemas/translate_dataset.json"
+        # config_[
+        #     "scheming.dataset_schemas"
+        # ] = "ckanext.translate:schemas/ckan_dataset.yaml"
         config_[
             "scheming.presets"
         ] = """
