@@ -1,165 +1,47 @@
 {
-    "scheming_version": 2,
-    "dataset_type": "dataset",
-    "about": "A reimplementation of the default CKAN dataset schema",
-    "about_url": "http://github.com/ckan/ckanext-scheming",
-    "form_languages": [
-        "en",
-        "fr",
-        "ar",
-        "ru",
-        "zh_Hans_CN",
-        "es"
-    ],
+    "scheming_version": 1,
+    "dataset_type": "fluent-test",
+    "about_url": "http://github.com/open-data/ckanext-fluent",
+    "form_languages": ["en", "fr"],
     "dataset_fields": [
-        {
-            "field_name": "title_translated",
-            "type": "dictionary",
-            "label": {
-                "en": "Title",
-                "fr": "Titre"
-            },
-            "help_inline": true,
-            "help_text": {
-                "en": "Add a simple, descriptive, short (100 characters or less) title that everyone will understand (you can include the \"technical title\" for subject matter experts in your description). If there is no French title, please use an online translation tool to make one."
-            },
-            "preset": "fluent_core_translated",
-            "form_placeholder": "e.g., A descriptive title",
-            "required": "true",
-            "fieldset": 1,
-            "fieldset_name": "Describing the resource",
-            "classes": [
-                "col-md-4"
-            ],
-            "schema": {
-                "key": {
-                    "type": "string",
-                    "default": "language_code"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
+      {
+        "field_name": "title",
+        "label": {
+            "en": "Title",
+            "fr": "Titre"},
+        "preset": "title",
+        "form_placeholder": "eg. Yellow Submarine"
+      },
+      {
+        "field_name": "name",
+        "label": "URL",
+        "preset": "dataset_slug",
+        "form_placeholder": "eg. yellow-submarine"
+      },
+      {
+        "field_name": "books",
+        "label": {
+            "en": "Books",
+            "fr": "Livres"},
+        "preset": "fluent_text",
+        "required": true
+      },
+      {
+        "field_name": "keywords",
+        "label": {
+            "en": "Keywords",
+            "fr": "Mots-cl\u00e9s"
         },
-        {
-            "field_name": "name",
-            "label": "URL",
-            "preset": "dataset_slug",
-            "form_placeholder": "eg. my-dataset",
-            "type": "dictionary",
-            "schema": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        {
-            "field_name": "notes_translated",
-            "type": "dictionary",
-            "label": {
-                "en": "Description",
-                "fr": "Description",
-                "ar": "وصف",
-                "ru": "Описание",
-                "zh_Hans_CN": "描述",
-                "es": "Descripción"
-            },
-            "form_placeholder": "eg. Some useful notes about the data",
-            "preset": "fluent_core_translated",
-            "schema": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        {
-            "field_name": "tag_string",
-            "label": "Tags",
-            "preset": "tag_string_autocomplete",
-            "form_placeholder": "eg. economy, mental health, government"
-        },
-        {
-            "field_name": "license_id",
-            "label": "License",
-            "form_snippet": "license.html",
-            "help_text": "License definitions and additional information can be found at http://opendefinition.org/"
-        },
-        {
-            "field_name": "owner_org",
-            "label": "Organization",
-            "preset": "dataset_organization"
-        },
-        {
-            "field_name": "url",
-            "label": "Source",
-            "form_placeholder": "http://example.com/dataset.json",
-            "display_property": "foaf:homepage",
-            "display_snippet": "link.html"
-        },
-        {
-            "field_name": "version",
-            "label": "Version",
-            "validators": "ignore_missing unicode_safe package_version_validator",
-            "form_placeholder": "1.0"
-        },
-        {
-            "field_name": "author",
-            "label": "Author",
-            "form_placeholder": "Joe Bloggs",
-            "display_property": "dc:creator"
-        },
-        {
-            "field_name": "author_email",
-            "label": "Author Email",
-            "form_placeholder": "joe@example.com",
-            "display_property": "dc:creator",
-            "display_snippet": "email.html",
-            "display_email_name_field": "author"
-        },
-        {
-            "field_name": "maintainer",
-            "label": "Maintainer",
-            "form_placeholder": "Joe Bloggs",
-            "display_property": "dc:contributor"
-        },
-        {
-            "field_name": "maintainer_email",
-            "label": "Maintainer Email",
-            "form_placeholder": "joe@example.com",
-            "display_property": "dc:contributor",
-            "display_snippet": "email.html",
-            "display_email_name_field": "maintainer"
-        }
+        "form_languages": ["en", "fr", "es"],
+        "preset": "fluent_tags",
+        "required": true
+      }
     ],
     "resource_fields": [
-        {
-            "field_name": "url",
-            "label": "URL",
-            "preset": "resource_url_upload"
-        },
-        {
-            "field_name": "name_translated",
-            "label": "Name",
-            "form_placeholder": "eg. January 2011 Gold Prices",
-            "preset": "fluent_core_translated"
-        },
-        {
-            "field_name": "description_translated",
-            "label": "Description",
-            "form_snippet": "markdown.html",
-            "form_placeholder": "Some useful notes about the data",
-            "preset": "fluent_core_translated"
-        },
-        {
-            "field_name": "format",
-            "label": "Format",
-            "preset": "resource_format_autocomplete"
-        }
+      {
+        "field_name": "url",
+        "label": "URL",
+        "preset": "resource_url_upload"
+      }
     ]
-}
+  }
